@@ -23,7 +23,7 @@ export function fetchList() {
 
   try {
     return request
-              .get(`${URL}api/ToDos`)
+              .get(`${URL}api/list`)
               .set('Authorization', token)
   } catch(e) {
     throw { error: e.message }
@@ -35,7 +35,7 @@ export function makeToDo(toDoData) {
   console.log(toDoData)
   try {
     return request
-              .post(`${URL}api/ToDos`, toDoData)
+              .post(`${URL}api/list`, toDoData)
               .set('Authorization', token)
   } catch(e) {
     throw { error: e.message }
@@ -46,7 +46,7 @@ export function changeToDo(completedToDo) {
   const token = localStorage.getItem('TOKEN')
   try {
     return request
-              .put(`${URL}api/ToDos`, completedToDo)
+              .put(`${URL}api/list`, completedToDo)
               .set('Authorization', token)
   } catch(e) {
     throw { error: e.message }
@@ -58,7 +58,7 @@ export function deleteTodo(todoId) {
 
   try {
     return request
-              .delete(`${URL}api/toDos`, todoId)
+              .delete(`${URL}api/list`, todoId)
               .set('Authorization', token)
   } catch(e) {
     throw { error: e.message }
