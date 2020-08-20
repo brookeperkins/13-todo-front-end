@@ -1,38 +1,30 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento:wght@700&display=swap');
+
+body {
   text-align: center;
+  background-image: url('./bee.jpg');
+  background-repeat: repeat;
+  background-color: grey;
+
+  --color1: hsla(57, 79%, 91%, 1);
+  --color2: hsla(32, 44%, 86%, 1);
+  --color3: hsla(38, 17%, 72%, 1);
+  --color4: hsla(326, 7%, 54%, 1);
+  --color5: hsla(290, 11%, 67%, 1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
   display: flex;
   flex-direction: column;
+  justify-items: center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: var(--color1);
+  opacity: 0.8;
+  width: 90%;
+  margin: 50px;
+  border: black 2px solid;
 }

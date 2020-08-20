@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './Header.js';
+import Footer from './Footer.js';
+import AuthPage from './Auth/AuthPage.js';
+import Home from './Home/Home.js'
+import ToDo from './ToDo/ToDoPage.js'
+import {
+  BrowserRouter as Router, 
+  Route, 
+  Switch,
+  Link
+} from 'react-router-dom';
+export default class App extends Component {
+  state = {
+    token: localStorage.getItem('TOKEN'),
 }
-
-export default App;
+render() {
+  return (
+    <>
+    <Header />
+    <div className="main">
+    <Router>
+        <Switch>
+            <Route 
+                path="/" 
+                exact
+                render={(routerProps) => <Home {...routerProps} />} 
+            />
+            <Route 
+                path="/auth" 
+                exact
+                render={(routerProps) => <AuthPage auth={this.handleAuth} {...routerProps} />} 
+            />
+            <Route 
+                path="/list" 
+                exact
+                render={(routerProps) => <ToDo token={this.state.token} {...routerProps} />} 
+            />
+        </Switch>
+      <Footer />
+    </Router>
+</div>
+</>
+  )
+}
+}
