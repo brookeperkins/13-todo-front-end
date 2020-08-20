@@ -18,9 +18,13 @@ export default class App extends Component {
 render() {
   return (
     <>
-    <Header />
-    <div className="main">
     <Router>
+    <Header />
+    <nav>
+      <Link className="navLinks" to="/">Home</Link>
+      <Link className="navLinks" to="/auth">Login</Link>
+    </nav>
+    <div className="main">
         <Switch>
             <Route 
                 path="/" 
@@ -38,9 +42,9 @@ render() {
                 render={(routerProps) => <ToDo token={this.state.token} {...routerProps} />} 
             />
         </Switch>
+        </div>
       <Footer />
     </Router>
-</div>
 </>
   )
 }
