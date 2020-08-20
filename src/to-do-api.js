@@ -1,7 +1,6 @@
-  
 import request from 'superagent';
 
-const URL = process.env.REACT_APP_API_URL || 'https://user-auth-be.herokuapp.com/';
+const URL = process.env.REACT_APP_API_URL || 'http://localhost:3000' || 'https://user-auth-be.herokuapp.com/';
 
 export function signUp(userData) {
   try {
@@ -19,13 +18,47 @@ export function signIn(userData) {
   }
 }
 
-
 export function fetchList() {
   const token = localStorage.getItem('TOKEN')
 
   try {
     return request
               .get(`${URL}api/ToDos`)
+              .set('Authorization', token)
+  } catch(e) {
+    throw { error: e.message }
+  }
+}
+
+export function makeToDo(toDoData) {
+  const token = localStorage.getItem('TOKEN')
+  console.log(toDoData)
+  try {
+    return request
+              .post(`${URL}api/ToDos`, toDoData)
+              .set('Authorization', token)
+  } catch(e) {
+    throw { error: e.message }
+  }
+}
+
+export function changeToDo(completedToDo) {
+  const token = localStorage.getItem('TOKEN')
+  try {
+    return request
+              .put(`${URL}api/ToDos`, completedToDo)
+              .set('Authorization', token)
+  } catch(e) {
+    throw { error: e.message }
+  }
+}
+
+export function deleteTodo(todoId) {
+  const token = localStorage.getItem('TOKEN')
+
+  try {
+    return request
+              .delete(`${URL}api/toDos`, todoId)
               .set('Authorization', token)
   } catch(e) {
     throw { error: e.message }

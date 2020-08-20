@@ -9,8 +9,6 @@ import {
 export default class AuthPage extends Component {
 
   state = {
-    signIn: false,
-    signUp: false,
     signInEmail: '',
     signInPassword: '',
     signUpEmail: '',
@@ -27,7 +25,7 @@ export default class AuthPage extends Component {
 
 
     this.props.auth(userData.body.token)
-    this.props.history.push('/ToDoPage')
+    this.props.history.push('/list')
   }
 
   handleSignIn = async (e) => {
@@ -39,15 +37,15 @@ export default class AuthPage extends Component {
     })
 
     this.props.auth(userData.body.token)
-    this.props.history.push('/ToDoPage')
+    this.props.history.push('/list')
   }
 
   displaySignIn = () => {
-    this.setState({ signIn: true })
+    this.setState({ signIn: true, signUp: false })
   }
   
   displaySignUp = () => {
-    this.setState({ signUp: true })
+    this.setState({ signUp: true, signIn: false })
   }
 
   handleSignUpEmail = (e) => {
