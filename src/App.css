@@ -37,7 +37,24 @@ header>h2 {
   color: var(--color5);
 }
 
+nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  border: solid 2px var(--color5);
+  background-color: var(--color2);
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: var(--color3);
+}
+
+.navLinks {
+  cursor: pointer;
+}
+
 .main {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -49,6 +66,32 @@ header>h2 {
   border: black 2px solid;
 }
 
+.auth {
+  width: 50%;
+  padding: 50px;
+  align-items: center;
+  justify-items: center;
+}
+
+input {
+  padding: 5px;
+  margin: 10px;
+}
+
+form>button {
+  background-color: var(--color3);
+  padding: 5px;
+}
+
+.auth>h2 {
+  font-family: 'Quattrocentro';
+  color: var(--color4);
+  padding: 5px;
+  border: black solid 2px;
+  border-radius: 5px;
+}
+
 footer {
+  font-family: 'Courier New', Courier, monospace;
   border: black solid 2px;
 }

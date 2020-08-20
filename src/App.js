@@ -23,6 +23,7 @@ render() {
     <nav>
       <Link className="navLinks" to="/">Home</Link>
       <Link className="navLinks" to="/auth">Login</Link>
+      <Link className="navLinks" to="/list">List</Link>
     </nav>
     <div className="main">
         <Switch>
